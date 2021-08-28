@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Summary from "../Summary";
 import {
 	DashboardContainer,
@@ -11,6 +11,7 @@ import Entrada from "../../assets/Entradas.svg";
 import Saida from "../../assets/Saídas.svg";
 import Total from "../../assets/Total.svg";
 import TableItem from "../TableItem";
+import { Api } from "../../services/api";
 
 export type dataItem = {
 	titulo: string;
@@ -21,6 +22,13 @@ export type dataItem = {
 };
 
 const Dashboard = () => {
+	useEffect(() => {
+		(async () => {
+			const res = await Api.get("/transactions");
+
+			console.log("resposta : ", res);
+		})();
+	}, []);
 	const data: dataItem[] = [
 		{
 			titulo: "Desenvolvimento de site",

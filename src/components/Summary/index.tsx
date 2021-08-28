@@ -16,7 +16,9 @@ const Summary = ({ title, icon, value }: Iprops) => {
 				<img src={Logo} alt="icon" />
 			</ContentContainer>
 			<Total>
-				<strong>R${value}</strong>
+				<strong>
+					{title === "Saídas" ? "-" : null}R${value}
+				</strong>
 			</Total>
 		</Container>
 	);
