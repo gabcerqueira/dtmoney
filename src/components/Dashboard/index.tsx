@@ -17,6 +17,7 @@ export type dataItem = {
 	preço: number;
 	categoria: "Venda" | "Alimentação" | "Casa";
 	data: string;
+	ativo: boolean;
 };
 
 const Dashboard = () => {
@@ -26,18 +27,21 @@ const Dashboard = () => {
 			preço: 12000,
 			categoria: "Venda",
 			data: "12/09/2021",
+			ativo: true,
 		},
 		{
 			titulo: "Hamburguer",
 			preço: 700,
 			categoria: "Casa",
 			data: "12/09/2021",
+			ativo: false,
 		},
 		{
 			titulo: "Aluguel de Apartamento",
 			preço: 1700,
 			categoria: "Casa",
 			data: "14/09/2021",
+			ativo: false,
 		},
 	];
 
@@ -51,9 +55,11 @@ const Dashboard = () => {
 
 			<TableTitle>Ultimas Transações</TableTitle>
 			<TableHeader>
-				{Object.keys(data[0]).map((key) => (
-					<span>{key.toUpperCase()}</span>
-				))}
+				{Object.keys(data[0])
+					.filter((key) => key !== "ativo")
+					.map((key) => (
+						<span>{key.toUpperCase()}</span>
+					))}
 			</TableHeader>
 			<Table>
 				{data.map((item) => (

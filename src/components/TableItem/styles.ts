@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+type types = {
+	ativo: boolean;
+};
+
+const getBackground = ({ ativo }: types) =>
+	ativo ? "var(--green)" : "var(--red)";
+
 export const Container = styled.div`
 	width: 100%;
 
@@ -10,10 +17,16 @@ export const Container = styled.div`
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 10rem;
 	background: var(--shape);
+	text-align: left;
+	border-radius: 1rem;
 
 	span {
 		align-self: center;
 		color: var(--text-body);
 		font-size: 1rem;
+		text-align: left;
+	}
+	.preco {
+		color: ${getBackground};
 	}
 `;

@@ -7,9 +7,9 @@ interface Iprops {
 }
 
 const TableItem = ({ item }: Iprops) => (
-	<Container>
+	<Container ativo={item.ativo}>
 		<span>{item.titulo}</span>
-		<span>R${item.preço}</span>
+		<span className="preco">R${item.preço}</span>
 		<span>{item.categoria}</span>
 		<span>{item.data}</span>
 	</Container>

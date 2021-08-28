@@ -21,6 +21,7 @@ export const TableTitle = styled.div`
 	align-self: center;
 	font-size: 2rem;
 	margin: 2rem auto;
+	text-align: left;
 `;
 
 export const TableHeader = styled.div`
@@ -30,4 +31,5 @@ export const TableHeader = styled.div`
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 10rem;
 	padding: 0 2rem;
+	text-align: left;
 `;
