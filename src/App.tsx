@@ -1,6 +1,8 @@
 import { createServer } from "miragejs";
+import { useState } from "react";
 import Dashboard, { dataItem } from "./components/Dashboard";
 import Header from "./components/Header";
+import ModalTransactions from "./components/ModalTransactions";
 import { GlobalStyle } from "./styles/global";
 
 createServer({
@@ -28,10 +30,16 @@ createServer({
 });
 
 const App = () => {
+	const [isModalNewTransactionOpen, setIsModalNewTransactionOpen] =
+		useState<boolean>(false);
 	return (
 		<>
-			<Header />
+			<Header onSetIsModalNewTransactionOpen={setIsModalNewTransactionOpen} />
 			<Dashboard />
+			<ModalTransactions
+				isModalNewTransactionOpen={isModalNewTransactionOpen}
+				setIsModalNewTransactionOpen={setIsModalNewTransactionOpen}
+			/>
 			<GlobalStyle />
 		</>
 	);

@@ -1,31 +1,22 @@
-import React, { useState } from "react";
 import Logoimg from "../../assets/Logo.svg";
 import { Container, Content } from "./styles";
-import Modal from "react-modal";
 
-const Header = () => {
-	const [isModalNewTransactionOpen, setIsModalNewTransactionOpen] =
-		useState(false);
+interface Iprops {
+	onSetIsModalNewTransactionOpen: (bool: boolean) => void;
+}
 
-	const ModalTransaction = () => (
-		<Modal
-			isOpen={isModalNewTransactionOpen}
-			onRequestClose={() => setIsModalNewTransactionOpen(false)}
-		></Modal>
-	);
-
+const Header = ({ onSetIsModalNewTransactionOpen }: Iprops) => {
 	return (
 		<Container>
 			<Content>
 				<img src={Logoimg} alt="gabs Money" />
 				<button
 					type="button"
-					onClick={() => setIsModalNewTransactionOpen(true)}
+					onClick={() => onSetIsModalNewTransactionOpen(true)}
 				>
 					Nova Transação
 				</button>
 			</Content>
-			<ModalTransaction />
 		</Container>
 	);
 };

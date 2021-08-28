@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Summary from "../Summary";
 import {
 	DashboardContainer,
@@ -22,14 +22,7 @@ export type dataItem = {
 };
 
 const Dashboard = () => {
-	useEffect(() => {
-		(async () => {
-			const res = await Api.get("/transactions");
-
-			console.log("resposta : ", res);
-		})();
-	}, []);
-	const data: dataItem[] = [
+	const datat: dataItem[] = [
 		{
 			titulo: "Desenvolvimento de site",
 			preço: 12000,
@@ -52,6 +45,15 @@ const Dashboard = () => {
 			ativo: false,
 		},
 	];
+	const [data, setData] = useState(datat);
+	useEffect(() => {
+		(async () => {
+			const res = await Api.get("/transactions");
+
+			console.log("resposta : ", res);
+			setData(res.data);
+		})();
+	}, []);
 
 	return (
 		<DashboardContainer>
