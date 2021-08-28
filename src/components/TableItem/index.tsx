@@ -1,5 +1,5 @@
 import React from "react";
-import { dataItem } from "../Dashboard";
+import { dataItem } from "../../TransactionsContext";
 import { Container } from "./styles";
 
 interface Iprops {
@@ -7,11 +7,11 @@ interface Iprops {
 }
 
 const TableItem = ({ item }: Iprops) => (
-	<Container ativo={item.ativo}>
+	<Container type={item.type}>
 		<span>{item.titulo}</span>
 		<span className="preco">
 			{" "}
-			{!item.ativo ? `-` : null} R${item.preço}
+			{item.type !== "deposit" ? `-` : null} R${item.preço}
 		</span>
 		<span>{item.categoria}</span>
 		<span>{item.data}</span>

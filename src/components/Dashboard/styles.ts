@@ -15,6 +15,7 @@ export const Table = styled.div`
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: flex-start;
+	padding: 0 0 4rem 0;
 `;
 
 export const TableTitle = styled.div`

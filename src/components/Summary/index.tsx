@@ -10,7 +10,7 @@ const Summary = ({ title, icon, value }: Iprops) => {
 	const Logo = icon;
 
 	return (
-		<Container title={title}>
+		<Container titulo={title}>
 			<ContentContainer>
 				<span>{title}</span>
 				<img src={Logo} alt="icon" />

@@ -16,11 +16,7 @@ export const Container = styled.form`
 		font-weight: 400;
 		border-radius: 0.25rem;
 		border: 0;
-
-		&::placeholder {
-			color: var(--text-body);
-			padding: 0 0.5rem;
-		}
+		padding-left: 1rem;
 	}
 
 	button[type="submit"] {
@@ -48,15 +44,25 @@ export const TransactionTypeContainer = styled.div`
 `;
 
 type propTypes = {
-	clicked: boolean;
+	transactionType: boolean;
+	typeButton: "deposit" | "withdraw";
 };
 
-export const ButtonContainer = styled.button`
+export const RadioBox = styled.button<propTypes>`
 	width: 12rem;
 	height: 4rem;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	border: 3px solid
-		${(props: propTypes) => (props.clicked ? "var(--green)" : "grey")};
+	border: 2px solid
+		${({ transactionType, typeButton }) =>
+			transactionType && typeButton === "deposit"
+				? "var(--green)"
+				: transactionType && typeButton === "withdraw"
+				? "var(--red)"
+				: "grey"};
+	transition: filter 0.2s;
+	&:hover {
+		filter: brightness(0.9);
+	}
 `;

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 type types = {
-	ativo: boolean;
+	type: "deposit" | "withdraw";
 };
 
-const getBackground = ({ ativo }: types) =>
-	ativo ? "var(--green)" : "var(--red)";
+const getBackground = ({ type }: types) =>
+	type === "deposit" ? "var(--green)" : "var(--red)";
 
 export const Container = styled.div`
 	width: 100%;

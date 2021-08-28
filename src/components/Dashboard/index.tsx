@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Summary from "../Summary";
 import {
 	DashboardContainer,
@@ -11,50 +10,16 @@ import Entrada from "../../assets/Entradas.svg";
 import Saida from "../../assets/Saídas.svg";
 import Total from "../../assets/Total.svg";
 import TableItem from "../TableItem";
-import { Api } from "../../services/api";
-
-export type dataItem = {
-	titulo: string;
-	preço: number;
-	categoria: "Venda" | "Alimentação" | "Casa";
-	data: string;
-	ativo: boolean;
-};
-
+import { dataItem, TransactionsContext } from "../../TransactionsContext";
+import { useContext } from "react";
+/*
+interface Iprops {
+	data: dataItem[];
+}
+*/
 const Dashboard = () => {
-	const datat: dataItem[] = [
-		{
-			titulo: "Desenvolvimento de site",
-			preço: 12000,
-			categoria: "Venda",
-			data: "12/09/2021",
-			ativo: true,
-		},
-		{
-			titulo: "Hamburguer",
-			preço: 700,
-			categoria: "Casa",
-			data: "12/09/2021",
-			ativo: false,
-		},
-		{
-			titulo: "Aluguel de Apartamento",
-			preço: 1700,
-			categoria: "Casa",
-			data: "14/09/2021",
-			ativo: false,
-		},
-	];
-	const [data, setData] = useState(datat);
-	useEffect(() => {
-		(async () => {
-			const res = await Api.get("/transactions");
-
-			console.log("resposta : ", res);
-			setData(res.data);
-		})();
-	}, []);
-
+	const data = useContext(TransactionsContext);
+	console.log("dado : ", data);
 	return (
 		<DashboardContainer>
 			<SummaryContainer>
@@ -65,16 +30,18 @@ const Dashboard = () => {
 
 			<TableTitle>Ultimas Transações</TableTitle>
 			<TableHeader>
-				{Object.keys(data[0])
-					.filter((key) => key !== "ativo")
-					.map((key) => (
-						<span>{key.toUpperCase()}</span>
-					))}
+				{data.data.length > 0
+					? Object.keys(data.data[0])
+							.filter((key) => key !== "type" && key !== "id")
+							.map((key, index) => <span key={index}>{key.toUpperCase()}</span>)
+					: null}
 			</TableHeader>
 			<Table>
-				{data.map((item) => (
-					<TableItem item={item} />
-				))}
+				{data.data.length > 0
+					? data.data.map((item, index) => (
+							<TableItem key={index} item={item} />
+					  ))
+					: null}
 			</Table>
 		</DashboardContainer>
 	);
