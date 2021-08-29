@@ -1,11 +1,4 @@
-import {
-	createContext,
-	FC,
-	ReactNode,
-	useContext,
-	useEffect,
-	useState,
-} from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import { Api } from "./services/api";
 
 export type dataItem = {

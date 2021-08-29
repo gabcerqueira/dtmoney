@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, ContentContainer, Total } from "./styles";
 interface Iprops {
 	title: string;

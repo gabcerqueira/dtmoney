@@ -1,4 +1,3 @@
-import React from "react";
 import { dataItem } from "../../TransactionsContext";
 import { Container } from "./styles";
 

@@ -1,11 +1,11 @@
-import { FormEvent, useContext, useState } from "react";
+import { FormEvent, useState } from "react";
 import Modal from "react-modal";
 import { RadioBox, Container, TransactionTypeContainer } from "./styles";
 import close from "../../assets/fechar.svg";
 import entrada from "../../assets/Entradas.svg";
 import saida from "../../assets/Saídas.svg";
-import { Api } from "../../services/api";
-import { dataItem, TransactionsContext } from "../../TransactionsContext";
+import { dataItem } from "../../TransactionsContext";
+import { UseTransactions } from "../../hooks/useTransaction";
 interface Iprops {
 	isModalNewTransactionOpen: boolean;
 	setIsModalNewTransactionOpen: (bool: boolean) => void;
@@ -19,7 +19,7 @@ const ModalTransactions = ({
 	const [title, setTitle] = useState("");
 	const [value, setValue] = useState(0);
 	const [category, setCategory] = useState("");
-	const { createTransaction } = useContext(TransactionsContext);
+	const { createTransaction } = UseTransactions();
 	const handleCreateNewTransaction = async (event: FormEvent) => {
 		event.preventDefault();
 		await createTransaction({
