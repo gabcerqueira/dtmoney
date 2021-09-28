@@ -1,13 +1,15 @@
-dtmoney
-dashboard cadastrar-transacao
+Dtmoney
+![dashboard](https://user-images.githubusercontent.com/43377719/135093075-eb504e85-db51-47c2-944a-06d5062b7bb5.png)
 
+![cadastrar-transacao](https://user-images.githubusercontent.com/43377719/135093021-5a1d05f0-09e9-40dd-b613-16f6a1256da6.png)
 
 🚀 Tecnologias, Hooks e Bibliotecas
-Projeto desenvolvido com as seguintes tecnologias:
+Projeto desenvolvido com as seguintes 
+tecnologias:
 
-ReactJS
-TypeScript
-useState (hook que armazena dados que podem variar com o tempo, qualquer informação ou dado deve ser armazenado no useState, só assim será possível renderizar a informação para o frontend web ou mobile)
+  ReactJS
+  TypeScript
+  useState (hook que armazena dados que podem variar com o tempo, qualquer informação ou dado deve ser armazenado no useState, só assim será possível renderizar a informação para o frontend web ou mobile)
 useEfect (hook utilizado para controlar a execução de uma função a partir da alteração de um determinado parâmetro)
 Context API (compartilhamento de estado entre vários componentes da aplicação, utiliza o hook useContext())
 Styled Components (biblioteca que permite escrever códigos CSS dentro do Javascript)
