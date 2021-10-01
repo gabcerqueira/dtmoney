@@ -10,7 +10,7 @@ tecnologias:
 * ReactJS
 * TypeScript
 * useState (hook que armazena dados que podem variar com o tempo, qualquer informação ou dado deve ser armazenado no useState, só assim será possível renderizar a informação para o frontend web ou mobile)
-* useEfect (hook utilizado para controlar a execução de uma função a partir da alteração de um determinado parâmetro)
+* useEffect (hook utilizado para controlar a execução de uma função a partir da alteração de um determinado parâmetro)
 * Context API (compartilhamento de estado entre vários componentes da aplicação, utiliza o hook useContext())
 * Styled Components (biblioteca que permite escrever códigos CSS dentro do Javascript)
 * Mirage JS (biblioteca de simulação de API que permite construir, testar e compartilhar um aplicativo JavaScript funcional completo antes de ser desenvolvido o back-end)
